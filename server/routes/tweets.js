@@ -18,6 +18,7 @@ module.exports = function(DataHelpers) {
   });
 
   tweetsRoutes.post("/", function(req, res) {
+
     if (!req.body.text) {
       res.status(400).json({ error: 'invalid request: no data in POST body'});
       return;
@@ -39,6 +40,11 @@ module.exports = function(DataHelpers) {
         res.status(201).send();
       }
     });
+  });
+
+  tweetsRoutes.post("/tweets", function(req, res) {
+    console.log("In tweets");
+    console.log(req.body.Tweet);
   });
 
   return tweetsRoutes;
