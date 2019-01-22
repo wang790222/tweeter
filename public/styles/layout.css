@@ -31,6 +31,10 @@ body {
   margin: auto;
 }
 
+.red {
+  color: red;
+}
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
