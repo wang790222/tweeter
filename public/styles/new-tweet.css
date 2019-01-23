@@ -1,11 +1,10 @@
 
 .new-tweet {
-  position: relative;
-  top: 75px;
   display: block;
   background-color: #eee;
-  margin: 0 2em;
+  margin: 120px 2em 0 2em;
   border-radius: 10px;
+  border: 1px solid #DCDCDC;
   padding: 20px;
 }
 

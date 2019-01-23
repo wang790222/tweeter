@@ -1,0 +1,50 @@
+
+.tweet {
+  display: block;
+  background-color: #eee;
+  margin: 50px 2em 0px 2em;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid #DCDCDC;
+  opacity: 0.7;
+}
+
+.tweet:hover {
+  border: 1px solid;
+  opacity: 1;
+}
+
+.tweet header {
+  margin: auto;
+  border-radius: 10px 10px 0 0;
+  height: 70px;
+
+  background-color: #eee;
+}
+
+.tweet .profile {
+  float: left;
+  display: inline-block;
+  border-radius: 10px;
+  margin: 10px 0 0 10px;
+}
+
+.tweet header h2 {
+  display: inline-block;
+  margin: 10px 0 0 10px;
+}
+
+.tweet header p {
+  float: right;
+  padding-right: 5px;
+}
+
+.tweet p {
+  padding-left: 15px;
+}
+
+.tweet footer p {
+  margin: auto;
+  padding-left: 10px;
+  border-top: 1px solid black;
+}

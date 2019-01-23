@@ -21,20 +21,16 @@ body {
   font-family: Roboto Condensed, sans-serif;
 }
 
-.container {
-  display: block;
-  position: relative;
-  top: 80px;
+.container  {
+  padding-bottom: 80px;
   width: 450px;
-  height: 300px;
   background-color: white;
   margin: auto;
+  height: auto;
+  overflow:auto;
 }
 
 .red {
   color: red;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
