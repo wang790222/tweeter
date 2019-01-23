@@ -75,7 +75,7 @@ function loadTweets() {
     }).success(function (data) {
       renderTweets(data);
     }).complete(function () {
-      console.log("Get Tweets success");
+
     });
 }
 
