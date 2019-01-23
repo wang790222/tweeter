@@ -1,12 +1,11 @@
 
 .tweet {
-  display: block;
   background-color: #eee;
   margin: 50px 2em 0px 2em;
   border-radius: 10px;
   background-color: white;
   border: 1px solid #DCDCDC;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 .tweet:hover {
@@ -18,7 +17,6 @@
   margin: auto;
   border-radius: 10px 10px 0 0;
   height: 70px;
-
   background-color: #eee;
 }
 

@@ -45,6 +45,11 @@
       });
     }
   });
+
+  $("#compose").on("click", function() {
+    $(".new-tweet").fadeToggle();
+    $("#tweetText").focus();
+  });
 });
 
 function renderTweets(tweets) {
@@ -82,7 +87,6 @@ function createTweetElement(tweetData) {
 function escape(str) {
   let p = document.createElement("p");
   p.appendChild(document.createTextNode(str));
-  console.log(p.innerHTML);
   return p.innerHTML;
 }
 
