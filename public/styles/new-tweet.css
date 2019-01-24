@@ -16,7 +16,7 @@
   padding-bottom: 10px;
 }
 
-.new-tweet textarea {
+#tweetText {
   width: 100%;
   padding: 5px;
 }
@@ -42,4 +42,3 @@
   display: inline;
   float: right;
 }
-

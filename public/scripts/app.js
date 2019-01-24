@@ -90,8 +90,22 @@ function createTweetElement(tweetData) {
 }
 
 function escape(str) {
+
+  let betterStr = str;
+
+  if (str.length >= 46 && !str.includes(" ")){
+    betterStr = `${str.substring(0, str.length / 2 | 0)} ${str.substring(str.length / 2 | 0 + 1, str.length)}`;
+  }
+
   let p = document.createElement("p");
-  p.appendChild(document.createTextNode(str));
+
+  for (let letter of betterStr) {
+    if (letter === "\n" || letter === "\r\n") {
+      p.appendChild(document.createElement("br"));
+    } else {
+      p.appendChild(document.createTextNode(letter));
+    }
+  }
   return p.innerHTML;
 }
 
