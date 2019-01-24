@@ -9,23 +9,28 @@
   loadTweets();
 
   $(".new-tweet textarea").on("keyup", function() {
-
+    $("#noTextError").hide();
     $(this).next().find(".counter").text(140 - $(this).val().length);
     if ($(this).val().length > 140) {
       $(this).next().find(".counter").addClass("red");
     } else {
+      $("#tooLongError").hide();
       $(this).next().find(".counter").removeClass("red");
     }
   });
+
 
   $(".new-tweet form").submit(function (event) {
 
     event.preventDefault();
 
     if ($("#tweetText").val() === "") {
-      alert("Invalid Tweet. You Should Input Something!");
+      //alert("Invalid Tweet. You Should Input Something!");
+      $("#noTextError").show();
+
     } else if($("#tweetText").val().length > 140) {
-      alert("Invalid Tweet. The Tweet Is Too Long");
+      //alert("Invalid Tweet. The Tweet Is Too Long");
+      $("#tooLongError").show();
     } else {
       $.ajax({
         type: "POST",
@@ -92,10 +97,10 @@ function escape(str) {
 
 function timestampTrans(timestamp) {
 
-  let createdTime =timestamp / 1000;
-  let nowTime = Date.now() / 1000;
+  let createdTime = timestamp;
+  let nowTime = Date.now();
 
-  let timeDiff =  Math.floor(nowTime - createdTime);
+  let timeDiff =  Math.floor((nowTime - createdTime) / 1000 );
 
   if (timeDiff > 31536000) { // secs one year
     return (Math.floor(timeDiff / 31536000)) > 1 ?

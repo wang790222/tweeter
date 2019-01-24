@@ -21,7 +21,25 @@
   padding: 5px;
 }
 
-.new-tweet span {
+.new-tweet footer {
+  display: inline;
+  width: 300px;
+  height: 80px;
+}
+
+.new-tweet footer input {
+  position: absolute;
+}
+
+.new-tweet footer p {
+  position: relative;
+  display: inline;
+  left: 60px;
+  margin: auto;
+}
+
+.new-tweet footer span {
+  display: inline;
   float: right;
 }
 
