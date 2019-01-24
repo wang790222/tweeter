@@ -141,7 +141,7 @@ function timestampTrans(timestamp) {
            (Math.floor(timeDiff / 60)) + " mins" : "1 min";
   }
 
-  return timeDiff + " secs";
+  return (timeDiff < 0) ? "0 sec" : timeDiff + " secs";
 }
 
 function loadTweets() {
