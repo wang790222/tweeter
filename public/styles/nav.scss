@@ -1,0 +1,29 @@
+#nav-bar {
+
+    position: fixed;
+    height: 80px;
+    width: 100%;
+    background-color: #00a087;
+    color: #e8fdff;
+    padding: 0 2em 0 2em;
+    z-index: 100;
+
+  .logo {
+    float: left;
+    height: 80px;
+    width: 80px;
+  }
+
+  .header {
+    margin-left: 10px;
+    font-size: 200%;
+    line-height: 80px;
+  }
+
+  #compose {
+    float: right;
+    height: 80%;
+    margin: 8px 20px 0 0;
+    border-radius: 10px;
+  }
+}

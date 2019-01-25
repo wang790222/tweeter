@@ -1,7 +1,6 @@
 html {
   box-sizing: border-box;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -9,12 +8,13 @@ html {
 /*
  * Global layout stuff
  */
+
 body {
   background-color: #eee;
   font-family: Roboto Condensed, sans-serif;
 }
 
-.container {
+.container  {
   position: relative;
   top: 50px;
   padding: 80px 0 60px 0;
@@ -26,5 +26,3 @@ body {
 .red {
   color: red;
 }
-
-/*# sourceMappingURL=layout.css.map */
