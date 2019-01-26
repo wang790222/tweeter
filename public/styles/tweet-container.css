@@ -63,9 +63,7 @@
   float: right;
 }
 
-#like {
-  background: none;
-  padding: 0px;
-  border: none;
-  z-index: 10;
+#black {
+  background: black;
+  color: black;
 }

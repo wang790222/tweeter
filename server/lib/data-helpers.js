@@ -14,10 +14,13 @@ module.exports = function makeDataHelpers(db) {
       db.collection("tweets").find().toArray(callback);
     },
 
-    getTweetIsLiked: function(userName, text, callback) {
-      let target = {"user.name": userName, "content.text": text};
-      console.log(target);
-      db.collection("tweets").find(target).toArray(callback);
+    updateTweet: function(isLike, userName, timestamp, callback) {
+
+      let target = {"user.name": userName, "created_at": Number(timestamp)};
+
+      (Number(isLike) === 1 ) ? db.collection("tweets").update(target, {$inc: {"content.likes": 1}}) :
+      db.collection("tweets").update(target, {$inc: {"content.likes": -1}});
+      callback(null, true);
     }
   };
 };

@@ -55,41 +55,37 @@
     $(".new-tweet").fadeToggle();
     $("#tweetText").focus();
   });
-
-  $("i.far.fa-heart").on('click', function () {
-    console.log("Fuck the heart");
-  });
 });
 
 function renderTweets(tweets) {
-  // loops through tweets
-    // calls createTweetElement for each tweet
-    // takes return value and appends it to the tweets container
-    for (var tweetData of tweets.reverse()) {
-      let $tweet = createTweetElement(tweetData);
-      $('#tweets-container').append($tweet);
-    }
+  for (var tweetData of tweets.reverse()) {
+    let $tweet = createTweetElement(tweetData, tweets.indexOf(tweetData));
+    $('#tweets-container').append($tweet);
+  }
 }
 
-function createTweetElement(tweetData) {
+function createTweetElement(tweetData, index) {
 
   let $tweet = $('<article>').addClass('tweet');
 
   let userObj = tweetData.user;
   let contentObj = tweetData.content;
   let createdAt = tweetData.created_at;
+  let text = contentObj.text;
+  let likes = (contentObj.likes) ? (contentObj.likes) : 0;
 
   let article = `
         <header>
           <img class="profile" src="${userObj.avatars.small}">
-          <h2>${userObj.name}</h2>
+          <h2 id="user_name">${userObj.name}</h2>
           <p>${userObj.handle}</p>
         </header>
-        <p>${escape(contentObj.text)}</p>
+        <p>${escape(text)}</p>
         <footer>
           <p>${timestampTrans(createdAt)} ago</p>
-          <p id="likeNum">0</p>
-          <i class="far fa-heart" style="cursor: pointer;"></i>
+          <p id="timestamp" style="display:none;">${createdAt}</>
+          <p id="likeNum">${likes}</p>
+          <i class="far fa-heart" id="heart${index}" style="cursor: pointer;"></i>
           <i class="fas fa-retweet"></i>
           <i class="fas fa-flag"></i>
         </footer>`;
@@ -160,8 +156,39 @@ function loadTweets() {
       dataType: "json",
     }).success(function (data) {
       renderTweets(data);
-    });
+      likeOrDislike();
+  });
 }
+
+function likeOrDislike() {
+  $("i.far.fa-heart").on("click", function(event) {
+
+    let id = $(this).attr('id');
+    let like = 0;
+    let num = Number($(`#${id}`).parent().find("#likeNum").text());
+
+    if ($(`#${id}`).attr("liked")) {
+      num--;
+      $(`#${id}`).removeAttr("liked");
+      like = -1;
+    } else {
+      num++;
+      $(`#${id}`).attr("liked", true);
+      like = 1;
+    }
+
+    $(`#${id}`).parent().find("#likeNum").text(num);
+
+    let username = $(`#${id}`).parent().parent().find("#user_name").html();
+    let timestamp = $(`#${id}`).parent().find("#timestamp").text();
+    $.ajax({
+      type: "POST",
+      url: "/tweets/like/?_method=PUT",
+      data: {like: like, username: username, timestamp: timestamp}
+    });
+  });
+}
+
 
 function showNav() {
 
@@ -180,6 +207,5 @@ function showNav() {
   }
 
   nav += `<button id="compose" type="button">Compose</button>`;
-
   $("#nav-bar").append(nav);
 }

@@ -1,11 +1,14 @@
 "use strict";
 
-const userHelper    = require("../lib/util/user-helper");
-const cookieParser  = require('cookie-parser');
-const express       = require('express');
+const userHelper     = require("../lib/util/user-helper");
+const cookieParser   = require('cookie-parser');
+const express        = require('express');
+const methodOverride = require('method-override');
+
 const tweetsRoutes  = express.Router();
 
 tweetsRoutes.use(cookieParser());
+tweetsRoutes.use(methodOverride('_method'));
 
 module.exports = function(DataHelpers) {
 
@@ -50,16 +53,15 @@ module.exports = function(DataHelpers) {
     });
   });
 
-  tweetsRoutes.post("/like", function(res, req) {
-    console.log("like!!!");
-    /*
-    DataHelpers.getTweetIsLiked(userName, text, (err, likedTweet) => {
-      if (err) {
+  tweetsRoutes.put("/like", function(req, res) {
+
+    DataHelpers.updateTweet(req.body.like, req.body.username, req.body.timestamp, (err) => {
+      if(err) {
         res.status(500).json({ error: err.message });
       } else {
-        console.log(likedTweet);
+        res.status(201).send();
       }
-    });*/
+    });
   });
 
   return tweetsRoutes;
