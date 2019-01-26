@@ -5,6 +5,7 @@
 const PORT          = 8080;
 const express       = require("express");
 const bodyParser    = require("body-parser");
+
 const app           = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -20,8 +21,12 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   }
 
   const DataHelpers = require("./lib/data-helpers.js")(db);
+  const userInfoHelpers = require("./lib/userInfo-helpers.js")(db);
+
+  const userRoutes = require("./routes/userInfo")(userInfoHelpers);
   const tweetsRoutes = require("./routes/tweets")(DataHelpers);
 
+  app.use("/user", userRoutes);
   app.use("/tweets", tweetsRoutes);
 
   app.listen(PORT, () => {

@@ -17,11 +17,21 @@
   font-size: 200%;
   line-height: 80px;
 }
+#nav-bar p {
+  display: inline;
+  margin: 0 0 0 10px;
+  font-size: 150%;
+  color: gray;
+}
+#nav-bar button {
+  border-radius: 10px;
+  margin: 0 5px;
+  height: 35px;
+}
 #nav-bar #compose {
   float: right;
   height: 80%;
   margin: 8px 20px 0 0;
-  border-radius: 10px;
 }
 
 /*# sourceMappingURL=nav.css.map */

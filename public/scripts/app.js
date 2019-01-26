@@ -6,6 +6,8 @@
 
  $(document).ready(function() {
 
+  showNav();
+
   loadTweets();
 
   $(".new-tweet textarea").on("keyup", function() {
@@ -19,7 +21,6 @@
     }
   });
 
-
   $(".new-tweet form").submit(function (event) {
 
     event.preventDefault();
@@ -27,7 +28,6 @@
     if ($("#tweetText").val() === "") {
       //alert("Invalid Tweet. You Should Input Something!");
       $("#noTextError").show();
-
     } else if($("#tweetText").val().length > 140) {
       //alert("Invalid Tweet. The Tweet Is Too Long");
       $("#tooLongError").show();
@@ -54,6 +54,10 @@
   $("#compose").on("click", function() {
     $(".new-tweet").fadeToggle();
     $("#tweetText").focus();
+  });
+
+  $("i.far.fa-heart").on('click', function () {
+    console.log("Fuck the heart");
   });
 });
 
@@ -84,6 +88,10 @@ function createTweetElement(tweetData) {
         <p>${escape(contentObj.text)}</p>
         <footer>
           <p>${timestampTrans(createdAt)} ago</p>
+          <p id="likeNum">0</p>
+          <i class="far fa-heart" style="cursor: pointer;"></i>
+          <i class="fas fa-retweet"></i>
+          <i class="fas fa-flag"></i>
         </footer>`;
 
   return $tweet.append(article);
@@ -153,4 +161,25 @@ function loadTweets() {
     }).success(function (data) {
       renderTweets(data);
     });
+}
+
+function showNav() {
+
+  let userId = Cookies.get('user_id');
+  let userHandle = Cookies.get("user_handle");
+
+  let nav = `<a href="http://localhost:8080/"><img class="logo" src="/images/bird.png"></a>
+              <span class="header">Tweeter</span>`;
+
+  if(userId) {
+    nav += `<p>@${userHandle}</p>
+            <button><a href="/user/logout">Logout</a></button>`;
+  } else {
+    nav += `<button><a href="/user/login">Login</a></button>
+            <button><a href="/user/register">Register</a></button>`;
+  }
+
+  nav += `<button id="compose" type="button">Compose</button>`;
+
+  $("#nav-bar").append(nav);
 }

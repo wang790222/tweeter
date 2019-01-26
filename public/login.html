@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Information -->
+    <title>Tweeter - Login Page</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+
+    <!-- External JS -->
+    <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
+
+    <!-- App JS -->
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Top nav bar (fixed) -->
+    <nav id="nav-bar">
+    </nav>
+
+    <main class="container">
+      <form id="infoInput" action="/user/login" method="POST">
+        <input id="email" type="email" name="email" placeholder="email">
+        <input id="password" type="password" name="password" placeholder="password">
+        <input id="submitBtn" type="submit" value="Login">
+      </form>
+    </main>
+  </body>
+</html>

@@ -1,5 +1,4 @@
 #nav-bar {
-
     position: fixed;
     height: 80px;
     width: 100%;
@@ -20,10 +19,13 @@
     line-height: 80px;
   }
 
+  button {
+    border-radius: 10px;
+  }
+
   #compose {
     float: right;
     height: 80%;
     margin: 8px 20px 0 0;
-    border-radius: 10px;
   }
 }

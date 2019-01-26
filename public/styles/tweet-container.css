@@ -41,8 +41,31 @@
   padding-left: 15px;
 }
 
-.tweet footer p {
-  margin: auto;
-  padding-left: 10px;
+.tweet footer {
   border-top: 1px solid black;
+}
+
+.tweet footer p {
+  margin: 5px 0 5px 0;
+  padding-left: 10px;
+
+  display: inline-block;
+}
+
+#likeNum {
+  float: right;
+  margin: 5px 5px 0 0;
+  padding: 0px;
+}
+
+.fa-flag, .fa-retweet, .fa-heart {
+  margin: 5px 5px 5px 0;
+  float: right;
+}
+
+#like {
+  background: none;
+  padding: 0px;
+  border: none;
+  z-index: 10;
 }

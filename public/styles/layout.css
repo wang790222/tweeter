@@ -27,4 +27,19 @@ body {
   color: red;
 }
 
-/*# sourceMappingURL=layout.css.map */
+#infoInput {
+  display: grid;
+  margin: 20px;
+}
+
+.container input {
+  display: grid;
+  margin: 2px;
+  border-radius: 6px;
+}
+
+#submitBtn {
+  position: relative;
+  width: 20%;
+  left: 40%;
+}
