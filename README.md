@@ -10,9 +10,7 @@ This repository is the starter code for the project: Students will fork and clon
 2. Install dependencies using the `npm install` command.
 3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
 4. Make sure MongoDb is installed.
-5. Create a DB called "tweeter".
-6. The port of local mongodb should be "27017"
-7. Go to <http://localhost:8080/> in your browser.
+5. Go to <http://localhost:8080/> in your browser.
 
 ## Dependencies
 
