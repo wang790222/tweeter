@@ -195,7 +195,7 @@ function showNav() {
   let userId = Cookies.get('user_id');
   let userHandle = Cookies.get("user_handle");
 
-  let nav = `<a href="http://localhost:8080/"><img class="logo" src="/images/bird.png"></a>
+  let nav = `<a href="/"><img class="logo" src="/images/bird.png"></a>
               <span class="header">Tweeter</span>`;
 
   if(userId) {
