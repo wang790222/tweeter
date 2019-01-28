@@ -10,7 +10,8 @@ This repository is the starter code for the project: Students will fork and clon
 2. Install dependencies using the `npm install` command.
 3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
 4. Make sure MongoDb is installed.
-5. Go to <http://localhost:8080/> in your browser.
+5. Prepare your own .env file and put MONGODB_URI (ex: MONGODB_URI=mongodb://<url>:<port>/tweeter)
+6. Go to <http://localhost:8080/> in your browser.
 
 ## Dependencies
 
@@ -25,6 +26,7 @@ This repository is the starter code for the project: Students will fork and clon
 - md5
 - method-override
 - mongodb
+- dotenv
 
 ## Screenshots
 
